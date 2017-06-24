@@ -1,16 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Resultats </h1>
-<<p> Composition: {{composition}}<br>
-Pourcentage de base GC: {{gc}} %<br>
-Température d'hybridiation: {{fusion}} °C<br>
-ARN: {{arn}}<br>
-Séquence en Acide-aminé correspondante: 
-{% for prot in prot %}
-                <li>{{prot}} </li>
- {% endfor %}<br>
-</p>
 <div class="container">
 <div class="row">
 	<div class="col-xs-12">
@@ -39,15 +29,16 @@ Séquence en Acide-aminé correspondante:
 				<div class="circle" id="circles-GC"></div><p>Pourcentage de base GC</p></div>
 				<div class="col-xs-2 col-md-offset-1">
 				<div class="circle" id="circles-temp"></div><p>Température de fusion</p></div>
-		    </div>
+		    	</div>
 
 		      </div>
 		    </div>
+
 		   <div class="panel panel-default">
 		    <div class="panel-heading">
 		      <h4 class="panel-title">
 		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-		        Transcription et traduction</a>
+		        Traduction et motif</a>
 		      </h4>
 		    </div>
 		    <div id="collapse2" class="panel-collapse collapse">
@@ -69,11 +60,23 @@ Séquence en Acide-aminé correspondante:
 		    {% endfor %}
 		    </tbody>
 		  </table>
+		  Motif simple "{{session['motifSimple'].upper()}}" trouvé aux positions: 
+		   {% for pos in posMotifSimple %}
+           {{pos}}, 
+ 		   {% endfor %} <br>
+ 		  Motif complexe "{{session['motifComplexe'].upper()}}" trouvé aux positions: 
+		   {% for pos in posMotifComplexe %}
+           {{pos}}, 
+ 		   {% endfor %} <br>
+ 		  Signature de séquence de taille {{session['signatureSize']}}: 
+		   {% for i in signa %}
+           {{i}}: {{signa[i]}}, 
+ 		   {% endfor %} <br>
+ 		   
+			</div>
 		</div>
-		      </div>
+	  </div>
 
-
-		  </div>
 		  <div class="panel panel-default">
 		    <div class="panel-heading">
 		      <h4 class="panel-title">

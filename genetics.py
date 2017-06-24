@@ -1,12 +1,15 @@
 import re
 
 def isSequenceValid(sequenceADN):
-	sequenceADN = set(list(sequenceADN.lower()))
-	a = True
-	for i in sequenceADN:
-		if not (i in ['a', 'c', 't', 'g']):
-			a = False
-	return a
+	if sequenceADN != "":
+		sequenceADN = set(list(sequenceADN.lower()))
+		a = True
+		for i in sequenceADN:
+			if not (i in ['a', 'c', 't', 'g']):
+				a = False
+		return a
+	else:
+		return False
 
 def composition(sequenceADN):
 	composition={}

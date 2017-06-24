@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-      
+<div class="container">
+<div class="row">
+	<div class="col-xs-12">      
 
 <h1>Bienvenue sur Genetics </h1>
 <h3>Une application web d'analyse de séquence génétique developpée par Harajuku</h3>
@@ -19,11 +21,11 @@
 <form action="" method="post" name="sequenceADN">
 {{form.hidden_tag()}}
 {{form.sequenceADN(rows='25',cols='100')}} <br>
-	
-		{% for error in form.sequenceADN.errors %}
-			<span style="color: red;"> 
-			ERREUR: {{ error }} </span><br>
-		{% endfor %} 	
-		<button type="sumbit">Lancer l'analyse !</button> </form>
+<p>{{ form.motifsimpleBool }} Recherche Motif Simple {{ form.motifsimple(size=20) }}</p>
 
+<p>{{ form.motifcomplexeBool }} Recherche Motif Complexe {{ form.motifcomplexe(size=20) }}</p>
+<p>{{ form.signatureBool }} Signature {{ form.signature(size=20) }}</p>
+<button type="sumbit">Lancer l'analyse !</button> </form>
+
+</div></div></div>
 {% endblock %}
