@@ -6,7 +6,10 @@
 Pourcentage de base GC: {{gc}} %<br>
 Température d'hybridiation: {{fusion}} °C<br>
 ARN: {{arn}}<br>
-Séquence en Acide-aminé correspondante: {{prot}}<br>
+Séquence en Acide-aminé correspondante: 
+{% for prot in prot %}
+                <li>{{prot}} </li>
+ {% endfor %}<br>
 </p>
 <div class="container">
 <div class="row">
@@ -49,10 +52,24 @@ Séquence en Acide-aminé correspondante: {{prot}}<br>
 		    </div>
 		    <div id="collapse2" class="panel-collapse collapse">
 
-		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-		      commodo consequat.
+		      <div class="panel-body">
+		      <table class="table">
+		    <thead>
+		      <tr>
+		        <th>Cadre</th>
+		        <th>Sequence Acide-aminé</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    {% for prot in prot %}
+		      <tr>
+		        <td>{{ loop.index - 1 }}</td>
+		        <td>{{prot}}</td>
+		      </tr>
+		    {% endfor %}
+		    </tbody>
+		  </table>
+		</div>
 		      </div>
 
 
@@ -65,10 +82,7 @@ Séquence en Acide-aminé correspondante: {{prot}}<br>
 		      </h4>
 		    </div>
 		    <div id="collapse3" class="panel-collapse collapse">
-		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-		      commodo consequat.</div>
+		      <div class="panel-body">place-holder</div>
 		    </div>
 		  </div>
 		   

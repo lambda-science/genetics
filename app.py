@@ -32,7 +32,7 @@ def resultat():
 	gc = int(pourcentGC(globalSequenceADN))
 	fusion = int(tempFusionHowley(globalSequenceADN))
 	arn = ADN2ARN(globalSequenceADN)
-	prot = traduction(arn, 0)
+	prot = traduction(arn)
 	return render_template('resultats.html', title ='Resultats', composition=compo, gc=gc, fusion=fusion, arn=arn, prot=prot, length=len(globalSequenceADN))
 
 if __name__ == "__main__":

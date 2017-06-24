@@ -52,7 +52,7 @@ def ADN2ARN(sequenceADN):
 	return sequenceARN
 
 
-def traduction(sequenceARN, cadre):
+def traduction(sequenceARN):
 	code_genetique = {
 	'uuu': 'F', 'ucu': 'S', 'uau': 'Y', 'ugu': 'C',
 	'uuc': 'F', 'ucc': 'S', 'uac': 'Y', 'ugc': 'C',
@@ -71,16 +71,16 @@ def traduction(sequenceARN, cadre):
 	'gua': 'V', 'gca': 'A', 'gaa': 'E', 'gga': 'G',
 	'gug': 'V', 'gcg': 'A', 'gag': 'E', 'ggg': 'G',
 	}	
+	sequenceProteineAll = []
+	for cadre in range(0,3):
 
-
-	if cadre in range(0,3):
 		sequenceCodon = [ sequenceARN[j:j+3] for j in range(cadre, len(sequenceARN), 3) ]
 		sequenceProteine = [ code_genetique[i] for i in sequenceCodon if i in code_genetique ]
 		sequenceProteine = '-'.join(sequenceProteine)
-		return sequenceProteine
+		sequenceProteineAll.append(sequenceProteine)
 
-	else:
-		return "Erreur dans le choix du cadre"
+	return sequenceProteineAll
+
 
 def localiserMotifSimple(sequenceADN, motif, positionRecherche):
 	motif = motif.lower()
