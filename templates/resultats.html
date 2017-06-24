@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Resultats </h1>
+<<p> Composition: {{composition}}<br>
+Pourcentage de base GC: {{gc}} %<br>
+Température d'hybridiation: {{fusion}} °C<br>
+ARN: {{arn}}<br>
+Séquence en Acide-aminé correspondante: {{prot}}<br>
+</p>
+<div class="container">
+<div class="row">
+	<div class="col-xs-12">
+		<div class="panel-group" id="accordion">
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+		        Analyse de composition</a>
+		      </h4>
+		    </div>
+		    <div id="collapse1" class="panel-collapse collapse in">
+		    <div class="panel-body">Voici la composition de la séquence ADN:</div>
+		     <div class="row">
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-A"></div><p>Adenosine</p></div>
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-T"></div><p>Thymine</p></div>	
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-G"></div><p>Guanine</p></div>
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-C"></div><p>Cytosine</p></div></div>
+
+				<div class="row">
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-GC"></div><p>Pourcentage de base GC</p></div>
+				<div class="col-xs-2 col-md-offset-1">
+				<div class="circle" id="circles-temp"></div><p>Température de fusion</p></div>
+		    </div>
+
+		      </div>
+		    </div>
+		   <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+		        Transcription et traduction</a>
+		      </h4>
+		    </div>
+		    <div id="collapse2" class="panel-collapse collapse">
+
+		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		      commodo consequat.
+		      </div>
+
+
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+		        Telecharger ces resultats</a>
+		      </h4>
+		    </div>
+		    <div id="collapse3" class="panel-collapse collapse">
+		      <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+		      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+		      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+		      commodo consequat.</div>
+		    </div>
+		  </div>
+		   
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+</div>
+
+<script>      	
+	var myCircle = Circles.create({
+	id:                  'circles-A',
+	radius:              60,
+	value:               {{composition["a"]}},
+	maxValue:            {{length}},
+	width:               15,
+	text:                {{composition["a"]}},
+	colors:              ['#93cbff', '#128eff'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true}); 
+	var myCircle = Circles.create({
+	id:                  'circles-T',
+	radius:              60,
+	value:               {{composition["t"]}},
+	maxValue:            {{length}},
+	width:               15,
+	text:                {{composition["t"]}},
+	colors:              ['#93cbff', '#128eff'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true}); 
+	var myCircle = Circles.create({
+	id:                  'circles-G',
+	radius:              60,
+	value:               {{composition["g"]}},
+	maxValue:            {{length}},
+	width:               15,
+	text:                {{composition["g"]}},
+	colors:              ['#93cbff', '#128eff'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true	});
+	var myCircle = Circles.create({
+	id:                  'circles-C',
+	radius:              60,
+	value:               {{composition["c"]}},
+	maxValue:            {{length}},
+	width:               15,
+	text:                {{composition["c"]}},
+	colors:              ['#93cbff', '#128eff'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true}); 
+	var myCircle = Circles.create({
+	id:                  'circles-GC',
+	radius:              60,
+	value:               {{gc}},
+	maxValue:            100,
+	width:               15,
+	text:                function(value){return value + '%';},
+	colors:              ['#98d8ba', '#119f5b'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true});
+	var myCircle = Circles.create({
+	id:                  'circles-temp',
+	radius:              60,
+	value:               {{fusion}},
+	maxValue:            100,
+	width:               15,
+	text:                function(value){return value + '°C';},
+	colors:              ['#98d8ba', '#119f5b'],
+	duration:            400,
+	wrpClass:            'circles-wrp',
+	textClass:           'circles-text',
+	valueStrokeClass:    'circles-valueStroke',
+	maxValueStrokeClass: 'circles-maxValueStroke',
+	styleWrapper:        true,
+	styleText:           true});  </script>
+{% endblock %}

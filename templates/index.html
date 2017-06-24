@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+      
+
+<h1>Bienvenue sur Genetics </h1>
+<h3>Une application web d'analyse de séquence génétique developpée par Harajuku</h3>
+<h5>Cette application permet d'accéder à:</h5>
+<ul>
+<li>La composition de la séquence</li>
+<li>La température de dénaturation</li>
+<li>La traduction en acide-aminé de la séquence</li>
+<li>La rechecherche de motif simple et/ou complexe (expression régulière)</li>
+<li>L'analyse de la "signature" de la séquence par taille de motif</li>
+</ul>
+
+<h4>Faire une analyse:</h4>
+
+<h5>Entre ta séquence:<br><h5>
+<form action="" method="post" name="sequenceADN">
+{{form.hidden_tag()}}
+{{form.sequenceADN(rows='25',cols='100')}} <br>
+	
+		{% for error in form.sequenceADN.errors %}
+			<span style="color: red;"> 
+			ERREUR: {{ error }} </span><br>
+		{% endfor %} 	
+		<button type="sumbit">Lancer l'analyse !</button> </form>
+
+{% endblock %}
