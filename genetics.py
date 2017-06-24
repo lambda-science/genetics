@@ -116,25 +116,3 @@ def signature(sequenceADN, m):
 		return dictSignature
 	else:
 		return "Erreur: motif trop grand"
-
-
-if __name__ == '__main__':
-	s = "cctagctagctacgtATGatgcatgctacgatgTAGgtcatcgatcatgTAGCTAGC"
-	s2 = "gtctactagctctga"
-	resultats = {
-	'ADN': s, 'composition': composition(s), 'GC': pourcentGC(s),
-	'fusion': tempFusionHowley(s), 'complementaire': estComplementaire(s, s2), 'ARN': ADN2ARN(s),
-	'motifsimple': localiserMotifSimple(s, "AATTGC", 7),
-	'motifRE': localiserMotifRE(s, "[AT][GC]..AT*", 4), 'signature': signature(s, 3)
-	}
-
-	print("Sequence de test: ", resultats['ADN'],  '\n',
-	"Composition:", resultats['composition'], '\n',
-	"Pourcent de GC: %d " % resultats['GC'], "% \n",
-	"Température de fusion: %d" % resultats['fusion'], "°C \n",
-	"Test de complémentarité avec la sequence :", s2, ": ", resultats['complementaire'], '\n',
-	"Sequence ARN correspondante: ", resultats['ARN'], '\n',
-	"Motif AATTGC a partir de la position 7 aux positions: ", resultats['motifsimple'], '\n',
-	"Motif regulier [AT][GC]..AT* a partir de la position 4 aux positions:", resultats['motifRE'], '\n',
-	"Nombre de motif de taille 3:", len(resultats['signature']), '\n',
-	"Liste et nombre de ces motif:", resultats['signature'])
