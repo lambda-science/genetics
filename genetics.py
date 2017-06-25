@@ -118,4 +118,4 @@ def signature(sequenceADN, m):
 			del dictSignature[k]
 		return dictSignature
 	else:
-		return "Erreur: motif trop grand"
+		return {"Taille signature superieur a 10":"Erreur"}

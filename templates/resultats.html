@@ -68,11 +68,23 @@
 		   {% for pos in posMotifComplexe %}
            {{pos}}, 
  		   {% endfor %} <br>
- 		  Signature de séquence de taille {{session['signatureSize']}}: 
-		   {% for i in signa %}
-           {{i}}: {{signa[i]}}, 
- 		   {% endfor %} <br>
- 		   
+ 		   		      <table class="table">
+		    <thead>
+		      <tr>
+		        <th>Occurence</th>
+		        <th>Sequence de la signature</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		    {% for i,j  in signa %}
+		      <tr>
+		        <td>{{j}}</td>
+		        <td>{{i}}</td>
+		      </tr>
+		    {% endfor %}
+		    </tbody>
+		  </table>
+	   
 			</div>
 		</div>
 	  </div>

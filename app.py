@@ -44,7 +44,7 @@ def resultat():
 	prot = traduction(arn)
 	posMotifSimple = ["N/A"]
 	posMotifComplexe = ["N/A"]
-	signa = ["N/A"]
+	sortedSigna = ["N/A"]
 	if session['simpleBool']:
 		posMotifSimple = localiserMotifSimple(session['SequenceADN'],session['motifSimple'], 0)
 
@@ -53,9 +53,9 @@ def resultat():
 
 	if session['signaBool']:
 		signa = signature(session['SequenceADN'], session['signatureSize'])
-
+		sortedSigna = sorted(signa.items(), key=lambda x: x[1], reverse=True)
 	return render_template('resultats.html', title ='Resultats', composition=compo, gc=gc, fusion=fusion, arn=arn, prot=prot,
-	length=len(session['SequenceADN']),posMotifSimple= posMotifSimple, posMotifComplexe=posMotifComplexe, signa=signa, session=session)
+	length=len(session['SequenceADN']),posMotifSimple= posMotifSimple, posMotifComplexe=posMotifComplexe, signa=sortedSigna, session=session)
 
 if __name__ == "__main__":
 	app.run(debug=True)
