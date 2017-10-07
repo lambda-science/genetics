@@ -13,7 +13,7 @@
 		      </h4>
 		    </div>
 		    <div id="collapse1" class="panel-collapse collapse in">
-		    <div class="panel-body">Voici la composition de la séquence ADN:</div>
+		    <div class="panel-body">Voici la composition de la séquence ADN: <b> {{seqTitle}} </b></div>
 		     <div class="row">
 				<div class="col-xs-2 col-md-offset-1">
 				<div class="circle" id="circles-A"></div><p>Adenosine</p></div>
@@ -76,12 +76,19 @@
 		      </tr>
 		    </thead>
 		    <tbody>
+		    {% if session['signaBool'] %}
 		    {% for i,j  in signa %}
 		      <tr>
 		        <td>{{j}}</td>
 		        <td>{{i}}</td>
 		      </tr>
 		    {% endfor %}
+		    {% else %}
+		      <tr>
+		        <td>N/A</td>
+		        <td>N/A</td>
+		      </tr>		    
+		    {% endif %}
 		    </tbody>
 		  </table>
 	   
