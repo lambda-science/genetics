@@ -98,11 +98,13 @@ def traduction(sequenceARN):
 
         sequenceCodon = [ sequenceARN[j:j+3] for j in range(cadre, len(sequenceARN), 3) ]
         sequenceProteine = [ code_genetique[i] for i in sequenceCodon if i in code_genetique ]
-        sequenceProteine = '-'.join(sequenceProteine)
         sequenceProteineAll.append(sequenceProteine)
 
     return sequenceProteineAll
 
+#def typeAminoAcid(peptidSequence):
+#    aminoAcidTypeCount = {}
+    
 
 def localiserMotifSimple(sequenceADN, motif, positionRecherche):
     motif = motif.lower()

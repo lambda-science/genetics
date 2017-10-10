@@ -52,12 +52,20 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		    {% for prot in prot %}
-		      <tr>
-		        <td>{{ loop.index - 1 }}</td>
-		        <td>{{prot}}</td>
-		      </tr>
+		    {% for peptidSeq in prot %}
+		    <tr>
+		      <td>{{ loop.index - 1 }}</td>
+		        <td>{% for i in peptidSeq %}
+		        	{% if i == "M" %}
+		        	<span id="start">START</span> - 
+		        	{% elif i == "*" %}
+		        	<span id="stop">STOP</span> - 
+		        	{% else %}
+		        	{{i}} - 
+		        	{% endif %}	      
+		    	{% endfor %}</td>
 		    {% endfor %}
+		    </tr>
 		    </tbody>
 		  </table>
 		  Motif simple "{{session['motifSimple'].upper()}}" trouvé aux positions: 
