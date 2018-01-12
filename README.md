@@ -5,6 +5,14 @@ A web application about DNA sequence analysis written in Python with Flask frame
 A Web-App made to analyse raw DNA sequence or read FASTA files and give various informations about its composition, pattern, melting temperature and translate it into protein sequence allowing to spot ORF easily
 
 ### How to use
+
+#### First: Install the dependencies
+This application uses flask, flask-wtf and wtforms. In order to install them you should use PIP as folowing:
+```python
+pip install flask, flask-wtf, wtforms
+```
+
+#### Then: modify the code depending of the way you want to deploy it
 If you're running on your own computer you need to uncomment line 66 in app.py file:
 ```python
 app.run(debug=True, host="127.0.0.1", port=5010)
